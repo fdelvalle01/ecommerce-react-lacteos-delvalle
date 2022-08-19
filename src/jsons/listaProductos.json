@@ -1,0 +1,32 @@
+{
+    "listProducts":[
+        {
+            "titulo": "Queso Fresco",
+            "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSulN9TFKFs_dwmZrs0501Hwb9jV5lGGkZWylKxQHd1Nt9N26kzC1DjxIqhvXw4Shv9Z0IuOMq1k5OFnpz64aac1aqvz1DxntRPW8GYb5rjgRNqveIG7mnX&usqp=CAE",
+            "descriptions": "Queso Fresco 1 pieza",
+            "precio": "49.000",
+            "stock": "5"
+        },
+        {
+            "titulo": "Queso Gouda",
+            "img": "https://cecinas.com/228-medium_default/queso-gouda-42kg.jpg",
+            "descriptions": "Queso Gouda barra roja, 1 pieza",
+            "precio": "29.000",
+            "stock": "10"
+        },
+        {
+            "titulo": "Queso Chanco",
+            "img": "https://jumbo.vtexassets.com/arquivos/ids/398957/Queso-chanco-laminado-250-g.jpg?v=637469319688530000",
+            "descriptions": "Queso Chanco laminado.",
+            "precio": "39.000",
+            "stock": "20"
+        },
+        {
+            "titulo": "Queso Cabra",
+            "img": "https://jumbo.vtexassets.com/arquivos/ids/398754/Queso-de-cabra-200-g.jpg?v=637469318179770000",
+            "descriptions": "Queso Cabra 1 pieza",
+            "precio": "39.000",
+            "stock": "20"
+        }
+    ]
+}

@@ -1,24 +1,19 @@
-import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 
 function App() {
+
+  const text = 'itemListContainer';
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <h1>Francisco Del Valle</h1>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App"> 
+    {/* Componennte navbar, menu para la web */}
+      <Navbar />
+
+    {/* Componennte body, donde iran la lista de items a futuro. los card ?? */}
+    
+      <ItemListContainer tituloItemList={text}/>
     </div>
   );
 }

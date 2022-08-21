@@ -1,9 +1,12 @@
 import React from 'react'
 import './NavbarItem.css'
+import { NavLink } from "react-router-dom";
+
 
 const NavbarItem = (props) => {
 
-const{name} = props;
+const{name, path} = props;
+console.log(path)
 
 const dorpDownItems = ["Queso Fresco","Queso Gauda", "Queso Chanco", "Queso Cabra", "Todos"]; 
 
@@ -33,7 +36,7 @@ const dorpDownItems = ["Queso Fresco","Queso Gauda", "Queso Chanco", "Queso Cabr
         Componente <li/> para los link del navbar de forma dinamica. 
       */
       <li className="nav-item">
-        <a className="nav-link" href="!#">{name}</a>
+        <NavLink className="nav-link" to={path}>{name}</NavLink>
       </li>
     )
   }

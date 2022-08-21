@@ -1,12 +1,12 @@
 import './ItemList.css'
-import Items from './Items'
+import Item from '../Item/Item'
 
 const ItemList = ({listProducts, onAdd}) => {
 
   return (
       <>
         {
-          listProducts.map((item,i) => <Items key={i} item={item} onAdd={onAdd}/>)
+          listProducts.map((item, index) => <Item index={index} item={item} onAdd={onAdd}/>)
         }
       </>
   )

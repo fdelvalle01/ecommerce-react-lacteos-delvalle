@@ -3,9 +3,11 @@ import './Navbar.css'
 import logo from '../../../src/img/LogoFinal.png'
 import NavbarItem from './NavbarItem/NavbarItem'
 import CartWidget from '../CartWidget/CartWidget'
+import listRoutesNav from '../../jsons/listRoutesNav.json'
 
 const Navbar = () => {
 
+    const routesList = listRoutesNav.listRoutesNav;
     const navBarItems = ["Home","Productos", "Lista Precios", "¿Quienes Somos?", "Contacto", "Login", "Registro"]; 
 
     return (
@@ -24,9 +26,9 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarText">
                     <ul className="navbar-nav mr-auto">
                         { 
-                        navBarItems.map((item, index)=> (
+                        routesList.map((item, index)=> (
                             /* Componente NavbarItem, Que recorre la lista de items en el menu con sus nombres. */
-                            <NavbarItem key={index} name={item} />
+                            <NavbarItem key={index} name={item.label} path={item.path}/>
                         ))
                         }
                     </ul>

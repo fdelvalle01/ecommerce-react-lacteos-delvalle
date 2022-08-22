@@ -3,12 +3,14 @@ import ItemList from './ItemList/ItemList'
 import itemListData from '../../jsons/listaProductos.json'
 import { Row, Container, Spinner } from 'react-bootstrap'
 
+import ItemCount from '../itemCount/ItemCount'
+
+
 const ItemListContainer = () => {
 
   const [products, setProducts] = useState([]);
   //Tenemos un useEffect que tiene una promise y consume un json. 
   useEffect(() => {
-    
     const {listProducts} = itemListData;
     new Promise((resolve) => {
       setTimeout(()=> {
@@ -26,6 +28,7 @@ const ItemListContainer = () => {
   return (
     <>
       <Container>
+        <ItemCount stock={5} initial={0} onAdd={onAdd}/>
         <Row>
         {products.length ? (
           //Queda a la espera de la carga de productos. se ejecuta un Spinners

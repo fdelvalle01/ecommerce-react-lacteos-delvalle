@@ -8,7 +8,7 @@ import listRoutesNav from '../../jsons/listRoutesNav.json'
 const Navbar = () => {
 
     const routesList = listRoutesNav.listRoutesNav;
-    const navBarItems = ["Home","Productos", "Lista Precios", "¿Quienes Somos?", "Contacto", "Login", "Registro"]; 
+    // const navBarItems = ["Home","Productos", "Lista Precios", "¿Quienes Somos?", "Contacto", "Login", "Registro"]; 
 
     return (
         <div id='toolbar'>

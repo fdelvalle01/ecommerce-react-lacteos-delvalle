@@ -1,9 +1,12 @@
 import React from 'react'
 import './NavbarItem.css'
+import { NavLink } from "react-router-dom";
+
 
 const NavbarItem = (props) => {
 
-const{name} = props;
+const{name, path} = props;
+console.log(path)
 
 const dorpDownItems = ["Queso Fresco","Queso Gauda", "Queso Chanco", "Queso Cabra", "Todos"]; 
 
@@ -13,15 +16,15 @@ const dorpDownItems = ["Queso Fresco","Queso Gauda", "Queso Chanco", "Queso Cabr
       /*
         Componente <li/> para drowpdownList del boton del navbar llamado "Productos"
       */
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="!#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li className="nav-item dropdown">
+        <a className="nav-link dropdown-toggle" href="!#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Productos
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
           {
-          dorpDownItems.map((item)=> (
+          dorpDownItems.map((item, index)=> (
           /* Componente NavbarItem, Que recorre la lista de items en el menu con sus nombres. */ 
-          <a class="dropdown-item" href="!#">{item}</a>
+          <a className="dropdown-item" href="!#" key={index}>{item}</a>
           ))
           }
         </div>
@@ -32,8 +35,8 @@ const dorpDownItems = ["Queso Fresco","Queso Gauda", "Queso Chanco", "Queso Cabr
       /*
         Componente <li/> para los link del navbar de forma dinamica. 
       */
-      <li class="nav-item">
-        <a class="nav-link" href="!#">{name}</a>
+      <li className="nav-item">
+        <NavLink className="nav-link" to={path}>{name}</NavLink>
       </li>
     )
   }

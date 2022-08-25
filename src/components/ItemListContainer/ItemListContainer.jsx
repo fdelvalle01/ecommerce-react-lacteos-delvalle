@@ -1,10 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import ItemList from './ItemList/ItemList'
+import ItemList from '../ItemList/ItemList'
 import itemListData from '../../jsons/listaProductos.json'
 import { Row, Container, Spinner } from 'react-bootstrap'
-
-import ItemCount from '../itemCount/ItemCount'
-
 
 const ItemListContainer = () => {
 
@@ -28,7 +25,6 @@ const ItemListContainer = () => {
   return (
     <>
       <Container>
-        <ItemCount stock={5} initial={0} onAdd={onAdd}/>
         <Row>
         {products.length ? (
           //Queda a la espera de la carga de productos. se ejecuta un Spinners

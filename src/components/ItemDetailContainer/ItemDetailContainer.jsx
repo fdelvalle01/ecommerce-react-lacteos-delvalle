@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import itemListData from '../../jsons/listaProductos.json'
-import { Row, Container, Spinner } from 'react-bootstrap'
-import ItemDetail from '../ItemDetailContainer/ItemDetail/ItemDetail'
+import { Container, Spinner } from 'react-bootstrap'
+import ItemDetail from '../ItemDetail/ItemDetail'
 
 const ItemDetailContainer = () => {
 
-    const paramsId = useParams();
+    const {id} = useParams();
     const [products, setProducts] = useState([]);
 
     // Tenemos un useEffect que tiene una promise y consume un json. 
@@ -14,21 +14,25 @@ const ItemDetailContainer = () => {
     const {listProducts} = itemListData;
     new Promise((resolve) => {
       setTimeout(()=> {
-        resolve(listProducts); 
+        resolve(listProducts.find( element => element.id === id)); 
       }, 2000);
     }).then((data) => {
-      setProducts(data.filter((data, index) => index == paramsId.id))
+      setProducts(data)
     });
-  }, []);
- 
+  }, [id]);
+
+  const onAdd = (counter) => {
+    console.log(`Cantidad de elementos agregados. ${counter}`);
+  }
+
   return (
     <>
     {
-      products.length ?  (
+      products.length !== 0 ?  (
         // falta el componente ItemsDetail que debe ir aqui.
-        products.map((item, index) => 
-          <ItemDetail key={index} props={item}></ItemDetail>
-        )
+
+          <ItemDetail props={products} onAdd={onAdd}></ItemDetail>
+
       ) : (
         <Container>
         <Spinner animation="grow" />

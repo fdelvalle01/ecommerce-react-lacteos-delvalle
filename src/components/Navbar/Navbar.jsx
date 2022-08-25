@@ -1,7 +1,7 @@
 import React from 'react'
 import './Navbar.css'
 import logo from '../../../src/img/LogoFinal.png'
-import NavbarItem from './NavbarItem/NavbarItem'
+import NavbarItem from '../NavbarItem/NavbarItem'
 import CartWidget from '../CartWidget/CartWidget'
 import listRoutesNav from '../../jsons/listRoutesNav.json'
 

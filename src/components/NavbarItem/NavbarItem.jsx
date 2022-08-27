@@ -1,14 +1,16 @@
 import React from 'react'
 import './NavbarItem.css'
 import { NavLink } from "react-router-dom";
-
+import itemDropDown from '../../jsons/listProductNav.json'
 
 const NavbarItem = (props) => {
+
+  const {listProductNav} = itemDropDown;
 
 const{name, path} = props;
 console.log(path)
 
-const dorpDownItems = ["Queso Fresco","Queso Gauda", "Queso Chanco", "Queso Cabra", "Todos"]; 
+// const dorpDownItems = ["Queso Fresco","Queso Gauda", "Queso Chanco", "Queso Cabra", "Todos"]; 
 
 // Si el name de la lista de productos es Productos entonces es un dropdownList. caso contrario, solo retornara los botones normales del navbar.
   if(name === "Productos"){
@@ -22,9 +24,10 @@ const dorpDownItems = ["Queso Fresco","Queso Gauda", "Queso Chanco", "Queso Cabr
         </a>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
           {
-          dorpDownItems.map((item, index)=> (
+          listProductNav.map((item, index)=> (
           /* Componente NavbarItem, Que recorre la lista de items en el menu con sus nombres. */ 
-          <a className="dropdown-item" href="!#" key={index}>{item}</a>
+          // <a className="dropdown-item" key={index}>{item.label}</a>
+          <NavLink className="dropdown-item" to={item.path} >{item.label}</NavLink>
           ))
           }
         </div>

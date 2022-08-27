@@ -11,7 +11,7 @@ const {titulo, img, descriptions, precio, ofertPrice} = item;
     <CardGroup>
       <Card className='Card' body color="primary" >
       <Card.Header id='CardHeader'>{titulo}</Card.Header>
-      <Card.Img variant="top" src={img} style={{maxWidth: "200px",  maxHeight: "200px"}}/>
+      <Card.Img variant="top" src={img} style={{maxWidth: "200px",  maxHeight: "200px", marginTop:"30px"}}/>
         <Card.Body>
           <Card.Text>
           {descriptions}

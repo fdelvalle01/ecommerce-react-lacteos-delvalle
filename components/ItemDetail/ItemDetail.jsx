@@ -16,7 +16,7 @@ const ItemDetail = ({props, key, onAdd}) => {
         <Card className='Card' body color="primary" key={key} style={{ maxWidth: '1500px', border:'none' }}>
         <Row>
             <Col sm="6" > 
-                <Card.Img variant="top" src={img} style={{maxWidth: "200px",  maxHeight: "200px"}}/>
+                <Card.Img variant="top" src={img} style={{ marginTop:"50px", maxWidth: "300px",  maxHeight: "300px"}}/>
             </Col>
             <Col sm="6" > 
                 <Card.Body>
@@ -48,6 +48,7 @@ const ItemDetail = ({props, key, onAdd}) => {
                                 </thead>
                             </table>
                        </ListGroup.Item>
+                       <ListGroup.Item id="listGroup"><small className="text-muted"><span>Despacho Gratis sobre $ 100.000 </span></small></ListGroup.Item>
                     </ListGroup>
                 </Card.Footer>
             </Col>

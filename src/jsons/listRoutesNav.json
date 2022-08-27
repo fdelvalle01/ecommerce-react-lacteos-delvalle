@@ -2,7 +2,7 @@
     "listRoutesNav":[
         {
             "path": "/",
-            "label": "Home"
+            "label": "Inicio"
         },
         {
             "path": "/Productos",

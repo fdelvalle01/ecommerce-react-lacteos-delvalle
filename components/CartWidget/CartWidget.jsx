@@ -2,8 +2,10 @@ import React from 'react'
 import './CartWidget.css'
 import { Button } from 'react-bootstrap';
 
+
  /* Componente Carrito de compras {CartWidget} contiene un icono que se muestra en el front lado derecho. */
 const CartWidget = () => {
+
 
   return (
     <div className='my-2 my-sm-0'>

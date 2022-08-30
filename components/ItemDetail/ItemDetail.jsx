@@ -1,8 +1,9 @@
-import React from 'react'
-import { Col, Card, Row, Container, ListGroup} from 'react-bootstrap'
+import React, { useContext }  from 'react'
+import { Col, Card, Row, Container, ListGroup, Button} from 'react-bootstrap'
 import ItemCount from '../itemCount/ItemCount'
 import './ItemDetail.css'
 import NavbarFooter from '../navbarFooter/NavbarFooter'
+import { GlobalContext } from '../../context/CartContext';
 
 const ItemDetail = ({props, key, onAdd}) => {
 
@@ -10,6 +11,9 @@ const ItemDetail = ({props, key, onAdd}) => {
 
     const textPriv = 'Todos tus productos aqui en Lácteos Del Valle tienda de quesos online, recuerda leer nuestras políticas de privacidad y de compra';
 
+    const {cart, addItem, removeItem} = useContext(GlobalContext);
+
+    console.log(cart);
   return (
     <div>
         <Container>
@@ -29,8 +33,15 @@ const ItemDetail = ({props, key, onAdd}) => {
                         <ListGroup.Item id="listGroup"><small className="text-muted"><span className="text-success "> {stock} Unidades Disponibles </span></small></ListGroup.Item>
                         
                         {/* Item Count --Componente */}
-                        <ListGroup.Item><ItemCount stock={stock} initial={0} onAdd={onAdd} /></ListGroup.Item>
-                    </ListGroup>
+                        <ListGroup.Item id="listGroup">
+                            <td>
+                                <ItemCount stock={stock} initial={0} onAdd={onAdd} />
+                            </td>
+                            <td>
+                                <Button id="ButtonDetails"  variant="light" className='float-left border border-warning'style={{width:"150px", marginLeft:'20px'}} onClick={() => addItem(...cart, {props})}>Añadir al Carrito</Button>             
+                            </td>
+                        </ListGroup.Item>                        
+                   </ListGroup>
                 </Card.Body>
                 <Card.Footer id='CardFooterDetail'>
                     <ListGroup  variant="flush" >

@@ -8,7 +8,6 @@ const NavbarItem = (props) => {
   const {listProductNav} = itemDropDown;
 
 const{name, path} = props;
-console.log(path)
 
 // const dorpDownItems = ["Queso Fresco","Queso Gauda", "Queso Chanco", "Queso Cabra", "Todos"]; 
 

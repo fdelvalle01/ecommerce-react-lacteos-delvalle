@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Col, Button,Row, InputGroup, Form} from 'react-bootstrap'
+import {Button,Row, InputGroup, Form} from 'react-bootstrap'
 
 const ItemCount = ({stock, initial, onAdd}) => {
 
@@ -22,7 +22,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                 <Form.Control aria-label="Small" aria-describedby="" placeholder={initial} value={counter} style={{width:"50px"}}/>
                 </InputGroup></td>
                 <td><Button id="ButtonDetails" variant="light" className='float-right border border-warning' onClick={aumentarContador} >+</Button></td>
-                <td><Button id="ButtonDetails"  variant="light" className='float-left border border-warning'style={{width:"150px"}} onClick={() => onAdd(counter)}>Añadir al Carrito</Button></td>
+                {/* <td><Button id="ButtonDetails"  variant="light" className='float-left border border-warning'style={{width:"150px"}} onClick={() => onAdd(counter)}>Añadir al Carrito</Button></td> */}
             </tr>
             </thead>
         </table>

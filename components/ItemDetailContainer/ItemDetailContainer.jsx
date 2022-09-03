@@ -21,17 +21,13 @@ const ItemDetailContainer = () => {
     });
   }, [id]);
 
-  const onAdd = (counter) => {
-    console.log(`Cantidad de elementos agregados. ${counter}`);
-  }
-
   return (
     <>
     {
       products.length !== 0 ?  (
         // falta el componente ItemsDetail que debe ir aqui.
 
-          <ItemDetail props={products} onAdd={onAdd}></ItemDetail>
+          <ItemDetail props={products}></ItemDetail>
 
       ) : (
         <Container>

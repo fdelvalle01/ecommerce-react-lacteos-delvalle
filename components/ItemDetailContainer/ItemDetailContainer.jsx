@@ -31,8 +31,8 @@ const ItemDetailContainer = () => {
 
       ) : (
         <Container>
-        <Spinner animation="grow" />
-      </Container>
+          <Spinner animation="grow" />
+        </Container>
       )
     }
     </>

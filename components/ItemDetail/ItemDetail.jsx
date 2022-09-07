@@ -4,6 +4,7 @@ import ItemCount from '../itemCount/ItemCount'
 import './ItemDetail.css'
 import NavbarFooter from '../navbarFooter/NavbarFooter'
 import { GlobalContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom'
 
 const ItemDetail = ({props, key}) => {
 
@@ -13,11 +14,18 @@ const ItemDetail = ({props, key}) => {
 
     const {addItem} = useContext(GlobalContext);
 
-    const [counter, setCounter] = useState(1)
+    const [counter, setCounter] = useState(1);
+    const [visibility, setVisibility] = useState(false);
 
     const onAdd = (value) => {
         setCounter(value);
-      }
+    }
+
+    const addItemFunctions = () => {
+        addItem(props, counter);
+        setVisibility(true);
+    }
+
     
   return (
     <div>
@@ -43,7 +51,12 @@ const ItemDetail = ({props, key}) => {
                                 <ItemCount stock={stock} initial={1} onAdd={onAdd} />
                             </td>
                             <td>
-                                <Button id="ButtonDetails"  variant="light" className='float-left border border-warning'style={{width:"150px", marginLeft:'20px'}} onClick={() => addItem(props, counter)}>Añadir al Carrito</Button>             
+                                <Button id="ButtonDetails"  variant="light" className='float-left border border-warning'style={{width:"150px", marginLeft:'20px'}} onClick={() => addItemFunctions()}>Añadir al Carrito</Button>  
+                               {
+                                !! visibility && 
+                                    <Link to={`/Cart`}>
+                                        <Button id="ButtonDetails"  variant="light" className='float-left border border-warning'style={{width:"150px", marginLeft:'20px'}}>Comprar</Button>                        
+                                    </Link> }
                             </td>
                         </ListGroup.Item>                        
                    </ListGroup>

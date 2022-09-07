@@ -17,14 +17,14 @@ const {titulo, img, descriptions, precio, ofertPrice} = item;
           {descriptions}
           </Card.Text>
           <Card.Text>
-            <h3><span className="text-danger">${ofertPrice}</span></h3><small className="text-muted">($8.990 x Kg)</small>
+            <h3><span className="text-danger">{new Intl.NumberFormat('es-CL', {currency: 'CLP', style: 'currency'}).format(ofertPrice)}</span></h3><small className="text-muted">($8.990 x Kg)</small>
           </Card.Text>
           <Card.Text>
-            <h6 className='text-muted'>Antes: <small className='text-decoration-line-through'>${precio}</small> </h6>
+            <h6 className='text-muted'>Antes: <small className='text-decoration-line-through'>{new Intl.NumberFormat('es-CL', {currency: 'CLP', style: 'currency'}).format(precio)}</small> </h6>
           </Card.Text> 
         </Card.Body>
         <Card.Footer id='CardFooter'>
-            <Link to={`/item-detail/${index}`}   className="nav-link" style={{borderRadius: '10px'}} id="ButtonDetails" variant="light">Detalles del producto</Link>
+            <Link to={`/item-detail/${index}`} className="nav-link" style={{borderRadius: '10px'}} id="ButtonDetails" variant="light">Detalles del producto</Link>
         </Card.Footer>
       </Card>
       </CardGroup>

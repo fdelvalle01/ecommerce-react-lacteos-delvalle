@@ -18,7 +18,7 @@ const{name, path} = props;
         Componente <li/> para drowpdownList del boton del navbar llamado "Productos"
       */
       <li className="nav-item dropdown">
-        <a className="nav-link dropdown-toggle" href="!#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a className="nav-link dropdown-toggle" style={{color:'#643907'}} href="!#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Productos
         </a>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -26,7 +26,7 @@ const{name, path} = props;
           listProductNav.map((item, index)=> (
           /* Componente NavbarItem, Que recorre la lista de items en el menu con sus nombres. */ 
           // <a className="dropdown-item" key={index}>{item.label}</a>
-          <NavLink className="dropdown-item" to={item.path} >{item.label}</NavLink>
+          <NavLink className="dropdown-item" style={{color:'#643907'}} to={item.path} >{item.label}</NavLink>
           ))
           }
         </div>
@@ -37,8 +37,8 @@ const{name, path} = props;
       /*
         Componente <li/> para los link del navbar de forma dinamica. 
       */
-      <li className="nav-item">
-        <NavLink className="nav-link" to={path}>{name}</NavLink>
+      <li className="nav-item" >
+        <NavLink className="nav-link" style={{color:'#643907'}} to={path}>{name}</NavLink>
       </li>
     )
   }

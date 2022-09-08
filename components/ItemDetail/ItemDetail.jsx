@@ -1,4 +1,4 @@
-import React, { useContext, useState }  from 'react'
+import React, { useContext, useState, useEffect }  from 'react'
 import { Col, Card, Row, Container, ListGroup, Button} from 'react-bootstrap'
 import ItemCount from '../itemCount/ItemCount'
 import './ItemDetail.css'
@@ -6,13 +6,14 @@ import NavbarFooter from '../navbarFooter/NavbarFooter'
 import { GlobalContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom'
 
+
 const ItemDetail = ({props, key}) => {
 
     const {titulo, img, descriptions, stock, ofertPrice, category, contNeto} = props
 
     const textPriv = 'Todos tus productos aqui en Lácteos Del Valle tienda de quesos online, recuerda leer nuestras políticas de privacidad y de compra';
 
-    const {addItem} = useContext(GlobalContext);
+    const {addItem, cart} = useContext(GlobalContext);
 
     const [counter, setCounter] = useState(1);
     const [visibility, setVisibility] = useState(false);
@@ -26,7 +27,15 @@ const ItemDetail = ({props, key}) => {
         setVisibility(true);
     }
 
-    
+    //Validamos si el producto que estamos mostrando ya existe cuando se cargue el itemDetail, 
+    //Si es true, entonces mostrara el boton de comprar. 
+    useEffect(() => {
+        if(cart.some( element => element.id === props.id)){
+            setVisibility(true);
+        }
+    }, [cart])
+
+
   return (
     <div>
         <Container>

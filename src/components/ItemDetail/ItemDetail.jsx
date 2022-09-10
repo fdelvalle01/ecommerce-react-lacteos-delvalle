@@ -1,19 +1,41 @@
-import React, { useContext }  from 'react'
+import React, { useContext, useState, useEffect }  from 'react'
 import { Col, Card, Row, Container, ListGroup, Button} from 'react-bootstrap'
 import ItemCount from '../itemCount/ItemCount'
 import './ItemDetail.css'
 import NavbarFooter from '../navbarFooter/NavbarFooter'
 import { GlobalContext } from '../../context/CartContext';
+import { Link } from 'react-router-dom'
 
-const ItemDetail = ({props, key, onAdd}) => {
 
-    const {titulo, img, descriptions, precio, stock, ofertPrice, category, contNeto} = props
+const ItemDetail = ({props, key}) => {
+
+    const {titulo, img, descriptions, stock, ofertPrice, category, contNeto} = props
 
     const textPriv = 'Todos tus productos aqui en Lácteos Del Valle tienda de quesos online, recuerda leer nuestras políticas de privacidad y de compra';
 
-    const {cart, addItem, removeItem} = useContext(GlobalContext);
+    const {addItem, cart} = useContext(GlobalContext);
 
-    console.log(cart);
+    const [counter, setCounter] = useState(1);
+    const [visibility, setVisibility] = useState(false);
+
+    const onAdd = (value) => {
+        setCounter(value);
+    }
+
+    const addItemFunctions = () => {
+        addItem(props, counter);
+        setVisibility(true);
+    }
+
+    //Validamos si el producto que estamos mostrando ya existe cuando se cargue el itemDetail, 
+    //Si es true, entonces mostrara el boton de comprar. 
+    useEffect(() => {
+        if(cart.some( element => element.id === props.id)){
+            setVisibility(true);
+        }
+    }, [cart])
+
+
   return (
     <div>
         <Container>
@@ -35,10 +57,15 @@ const ItemDetail = ({props, key, onAdd}) => {
                         {/* Item Count --Componente */}
                         <ListGroup.Item id="listGroup">
                             <td>
-                                <ItemCount stock={stock} initial={0} onAdd={onAdd} />
+                                <ItemCount stock={stock} initial={1} onAdd={onAdd} />
                             </td>
                             <td>
-                                <Button id="ButtonDetails"  variant="light" className='float-left border border-warning'style={{width:"150px", marginLeft:'20px'}} onClick={() => addItem(...cart, {props})}>Añadir al Carrito</Button>             
+                                <Button id="ButtonDetails"  variant="light" className='float-left border border-warning'style={{width:"150px", marginLeft:'20px'}} onClick={() => addItemFunctions()}>Añadir al Carrito</Button>  
+                               {
+                                !! visibility && 
+                                    <Link to={`/Cart`}>
+                                        <Button id="ButtonDetails"  variant="light" className='float-left border border-warning'style={{width:"150px", marginLeft:'20px'}}>Comprar</Button>                        
+                                    </Link> }
                             </td>
                         </ListGroup.Item>                        
                    </ListGroup>
@@ -52,9 +79,9 @@ const ItemDetail = ({props, key, onAdd}) => {
                                 <thead>
                                 <tr>
                                     <td><small className="text-muted"><span>Share: </span></small> </td>
-                                    <td><small className="text-muted"><span><a><span class="fa fa-facebook"></span></a></span>    </small> </td>
+                                    <td><small className="text-muted"><span><a href='#!'><span class="fa fa-facebook"></span></a></span></small></td>
                                     <td></td>
-                                    <td><small className="text-muted"><a><span class="fa fa-instagram"></span></a></small></td>
+                                    <td><small className="text-muted"><a href='#!'><span class="fa fa-instagram"></span></a></small></td>
                                 </tr>
                                 </thead>
                             </table>
@@ -68,9 +95,9 @@ const ItemDetail = ({props, key, onAdd}) => {
             </Col>            
         </Row>
         
-            <NavbarFooter/>
-       
-        
+            <NavbarFooter descriptions={descriptions}
+                          category={category}
+                          contNeto={contNeto}/>
         </Card>
         </Container>
     </div>

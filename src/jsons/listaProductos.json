@@ -5,41 +5,53 @@
             "titulo": "Queso Fresco",
             "img": "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSulN9TFKFs_dwmZrs0501Hwb9jV5lGGkZWylKxQHd1Nt9N26kzC1DjxIqhvXw4Shv9Z0IuOMq1k5OFnpz64aac1aqvz1DxntRPW8GYb5rjgRNqveIG7mnX&usqp=CAE",
             "descriptions": "Queso Fresco 1 pieza",
-            "precio": "5.990",
-            "ofertPrice": "5.660",
+            "precio": "5990",
+            "ofertPrice": "5660",
             "category": "Lácteos",
             "contNeto": "400",
-            "stock": "5"
+            "stock": "5",
+            "unidad": "KG",
+            "dctRequi": "sobre 20 piezas"
+
         },
         {
             "id": "1",
             "titulo": "Queso Gouda",
             "img": "https://cecinas.com/228-medium_default/queso-gouda-42kg.jpg",
             "descriptions": "Queso Gouda barra roja, 1 pieza",
-            "precio": "29.000",
-            "ofertPrice": "10.990",
+            "precio": "29000",
+            "ofertPrice": "10990",
             "category": "Lácteos",
-            "stock": "10"
+            "contNeto": "200",
+            "stock": "10",
+            "unidad": "KG",
+            "dctRequi": "sobre 25 piezas"
         },
         {
             "id": "2",
             "titulo": "Queso Chanco",
             "img": "https://jumbo.vtexassets.com/arquivos/ids/398957/Queso-chanco-laminado-250-g.jpg?v=637469319688530000",
             "descriptions": "Queso Chanco laminado.",
-            "precio": "10.000",
-            "ofertPrice": "7.990",
+            "precio": "10000",
+            "ofertPrice": "7990",
             "category": "Lácteos",
-            "stock": "20"
+            "contNeto": "200",
+            "stock": "20",
+            "unidad": "KG",
+            "dctRequi": "sobre 15 piezas"
         },
         {
             "id": "3",
             "titulo": "Queso Cabra",
             "img": "https://jumbo.vtexassets.com/arquivos/ids/398754/Queso-de-cabra-200-g.jpg?v=637469318179770000",
             "descriptions": "Queso Cabra 1 pieza",
-            "precio": "15.000",
-            "ofertPrice": "12.990",
+            "precio": "15000",
+            "ofertPrice": "12990",
             "category": "Lácteos",
-            "stock": "20"
+            "contNeto": "200",
+            "stock": "20",
+            "unidad": "KG",
+            "dctRequi": "sobre 10 piezas"
         }
     ]
 }

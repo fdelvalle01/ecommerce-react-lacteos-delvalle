@@ -13,7 +13,7 @@ const Navbar = () => {
 
     return (
 
-        <div id='toolbar'>
+        <div id='toolbar' >
                   
           <div id="tolbarTop"><p id="textToolbar">Envios GRATIS sobre: $100.000 RM</p></div>
         

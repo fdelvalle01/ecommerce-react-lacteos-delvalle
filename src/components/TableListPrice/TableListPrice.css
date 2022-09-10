@@ -1,0 +1,16 @@
+#toolbarList{
+    height: 50px;
+    border: 1px solid rgb(255, 193, 77);
+    border: 1px solid rgb(77, 234, 255);
+}
+
+#inputSearch{
+    margin:center;
+    width: 200px; 
+    float:right;
+    margin-top: 10px;
+}
+
+#tableList{
+    border: 1px solid rgb(255, 193, 77); 
+}

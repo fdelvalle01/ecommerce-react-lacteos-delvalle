@@ -1,3 +1,19 @@
 #CartWidget{
     font-size:25px;
 }
+
+#imgNoEncontrado{
+    width: '100px';
+    height: '250px';
+}
+
+#listGroup{
+    border-bottom: none !important;
+    border-top: none  !important;
+    background-color: white;
+ 
+}
+.table > :not(:last-child) > :last-child > * {
+    border-top: none;
+    border-bottom: 1px solid rgb(204, 204, 204);     
+  }

@@ -8,7 +8,16 @@ const ItemCount = ({stock, initial, onAdd}) => {
   //useEffect depende del contador y ademas debe depender del stock del proudcto de la lista productos. 
 
   const aumentarContador = () => {
-    if(counter < stock) setCounter(counter + 1); 
+    if(counter < stock) {
+      setCounter(counter + 1); 
+      onAdd(counter+1);
+    }
+  }
+  const restarContador = () => {
+    if(counter > 0) {
+      setCounter(counter - 1);
+      onAdd(counter-1);
+    }
   }
 
   return (
@@ -17,7 +26,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
         <table>
             <thead>
             <tr>
-                <td><Button id="ButtonDetails"  variant="light" disabled={counter <= 0}  className='float-left border border-warning' onClick={() => setCounter(counter - 1)} >-</Button></td>
+                <td><Button id="ButtonDetails"  variant="light" disabled={counter <= 1}  className='float-left border border-warning' onClick={restarContador} >-</Button></td>
                 <td><InputGroup>
                 <Form.Control aria-label="Small" aria-describedby="" placeholder={initial} value={counter} style={{width:"50px"}}/>
                 </InputGroup></td>

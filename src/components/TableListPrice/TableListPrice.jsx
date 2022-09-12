@@ -1,9 +1,13 @@
 import React, {useState, useEffect, useRef} from 'react'
-import { Container, Table, Form , InputGroup, Spinner, Button } from 'react-bootstrap'
+import { Container, Form , InputGroup, Spinner, Button } from 'react-bootstrap'
 import itemListData from '../../jsons/listaProductos.json'
 import './TableListPrice.css'
 import { DownloadTableExcel } from 'react-export-table-to-excel';
+import TableItems from './TableItems/TableItems'
 
+/*
+    Componente que muestra todos los productos en una tabla para la informacion mas especifica de los usuarios, se puede exportar a un excel y contiene un buscador.. 
+*/
 const TableListPrice = () => {
     
     const [products, setProducts] = useState([]);
@@ -23,7 +27,6 @@ const TableListPrice = () => {
     }, []);
 
     const filterProduct = (e) => {
-        console.log(e)  
         let value = products.filter( element => {
             return element.titulo.toLowerCase().includes(e.toLowerCase())
         });
@@ -35,41 +38,6 @@ const TableListPrice = () => {
     }
     const tableRef = useRef(null);
 
-    function TableItems() {
-        return (
-            <Table responsive striped hover  data-toolbar="#toolbar" id="tableList" ref={tableRef}>
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Descripción</th>
-                        <th>Categoria</th>
-                        <th>Stock</th>
-                        <th>Precio con IVA</th>
-                        <th>Dct. Mayorista</th>
-                        <th>Dct. Requisito</th>
-                        <th>Unidad</th>
-                    </tr>
-                </thead>
-            <tbody >
-                <>
-                    {textFilter.map((item, index) => 
-                        <tr>
-                            <td>{item.titulo}</td>
-                            <td>{item.descriptions}</td>
-                            <td>{item.category}</td>
-                            <td>{item.stock}</td>
-                            <td>{item.precio}</td>
-                            <td>{item.ofertPrice}</td>
-                            <td>{item.dctRequi}</td>
-                            <td>{item.unidad}</td>
-                        </tr>
-                        )
-                    }
-                </>
-            </tbody>
-        </Table>
-        )
-    }
   return (
     <Container style={{marginTop:'50px'}} >
         <>
@@ -87,7 +55,7 @@ const TableListPrice = () => {
                                 />
                             </InputGroup>
                             </div>                 
-                        <TableItems/>
+                        <TableItems textFilter={textFilter} tableRef={tableRef} />
                         <div>
                             <DownloadTableExcel
                                         filename="prudctos table"

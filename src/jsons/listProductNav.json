@@ -1,24 +1,20 @@
 {
     "listProductNav":[
         {
-            "path": "/Queso-Fresco",
+            "path": "Queso-Fresco",
             "label": "Queso Fresco"
         },
         {
-            "path": "/Queso-Gauda",
+            "path": "Queso-Gauda",
             "label": "Queso Gauda"
         },
         {
-            "path": "/Queso-Chanco",
+            "path": "Queso-Chanco",
             "label": "Queso Chanco"
         },
         {
-            "path": "/Queso-Cabra",
+            "path": "Queso-Cabra",
             "label": "Queso Cabra"
-        },
-        {
-            "path": "/Todos",
-            "label": "Todos"
         }
     ]
 }

@@ -6,6 +6,11 @@ import NavbarFooter from '../navbarFooter/NavbarFooter'
 import { GlobalContext } from '../../context/CartContext';
 import { Link } from 'react-router-dom'
 
+/*
+    Componente que se utiliza para la muestra de la informacion del producto.   
+    @{props}, Parametro que obtiene las propiedades del producto.
+    @{key},   Parametro que contiene la key de las props . 
+*/
 
 const ItemDetail = ({props, key}) => {
 

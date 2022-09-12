@@ -1,6 +1,14 @@
 import React, {useState} from 'react'
 import {Button,Row, InputGroup, Form} from 'react-bootstrap'
 
+
+/*
+    Componente que se utiliza para el conteo de los productos en la lista de detalles.   
+    @{stock},     Parametro que obtiene cantidad del producto existente.
+    @{initial},   Parametro que obtiene el valor inicial del contador, parte de 1 por defecto ya que no se puede agregar 0 producto al cart. 
+    @{onAdd},     metodo onAdd que se utiliza para agregar o restar la cantidad de productos a la lista de este
+*/
+
 const ItemCount = ({stock, initial, onAdd}) => {
 
   // Lectura de contador, agregar o disminuir, dependiente del stock del producto

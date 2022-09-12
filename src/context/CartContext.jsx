@@ -1,7 +1,10 @@
 import React, {createContext, useState}from 'react'
 
 export const GlobalContext = createContext(); 
-
+/*
+    Componente cartContext contiene las funciones basicas y globales que se puede utilizar a lo largo de todo el proyecto con solo una llamada a este.   
+    @children Parametro que contiene todos los hijos de los componentes padres en el sistema 
+*/
 const CartContext = ({children}) => {
 
     const [cart, setCart] = useState([]);

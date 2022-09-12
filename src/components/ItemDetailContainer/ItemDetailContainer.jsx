@@ -1,25 +1,41 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-import itemListData from '../../jsons/listaProductos.json'
 import { Container, Spinner } from 'react-bootstrap'
 import ItemDetail from '../ItemDetail/ItemDetail'
 
+import db from '../../services/services'
+import { doc, getDoc  } from 'firebase/firestore'
+/*
+    Componente que se utiliza para la muestra todos los productos para su detail, en este valida si existen y los envia a ItemDetail, para su recorrido y mostrado.   
+*/
 const ItemDetailContainer = () => {
 
     const {id} = useParams();
     const [products, setProducts] = useState([]);
 
-    // Tenemos un useEffect que tiene una promise y consume un json. 
-    useEffect(() => {
-    const {listProducts} = itemListData;
-    new Promise((resolve) => {
-      setTimeout(()=> {
-        resolve(listProducts.find( element => element.id === id)); 
-      }, 2000);
-    }).then((data) => {
-      setProducts(data)
-    });
-  }, [id]);
+  // Conection for firebase data and products
+  
+  useEffect(() => {
+    
+    const getColData = async () => {
+      try {
+        const productRef = doc(db, 'productos', id);
+        getDoc(productRef).then((snapshot) => {
+          if(snapshot.exists()){
+            setProducts({id: snapshot.id, ...snapshot.data()})
+          }
+        })
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    getColData();
+    return () => {
+      
+    }
+  }, [id])
 
   return (
     <>

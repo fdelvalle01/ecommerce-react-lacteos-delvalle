@@ -1,15 +1,19 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Navbar.css'
 import logo from '../../../src/img/LogoFinal.png'
 import NavbarItem from '../NavbarItem/NavbarItem'
 import CartWidget from '../CartWidget/CartWidget'
 import listRoutesNav from '../../jsons/listRoutesNav.json'
 
+import {collection, getDoc, getDocs, getFiresore, query, where} from 'firebase/firestore'
+import db from '../../services/services'
 
+/*
+    Componente navbar que es el menu de nuestro e-comerce.   
+*/
 const Navbar = () => {
 
     const routesList = listRoutesNav.listRoutesNav;
-    // const navBarItems = ["Home","Productos", "Lista Precios", "¿Quienes Somos?", "Contacto", "Login", "Registro"]; 
 
     return (
 

@@ -19,13 +19,15 @@ const ItemListContainer = () => {
 
   // Conection for firebase data and products 
   useEffect(() => {
-    
     const getColData = async () => {
       try {
-        const data = collection(db, 'productos');
-        const col = await getDocs(data);
-        const res = col.docs.map((doc) => doc={id:doc.id, ...doc.data() }); //genera un nuevo array, con la id y ademas el resto del doc
-        setProducts(res)
+        const q = query(collection(db, "productos"), where("stock", ">", 0))
+        getDocs(q).then((snapshot)=> {
+          if(snapshot.size === 0){
+              console.log("No Results");
+          }
+          setProducts(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() })))
+        })
       } catch (error) {
         console.log(error)
       }

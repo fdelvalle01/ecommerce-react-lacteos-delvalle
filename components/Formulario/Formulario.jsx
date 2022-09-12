@@ -2,7 +2,7 @@ import React, {useState, useContext} from 'react'
 import { GlobalContext } from '../../context/CartContext';
 import { Container, Button, Row, Col, Form, Alert } from 'react-bootstrap';
 import db from '../../services/services'
-import { collection, addDoc } from 'firebase/firestore'
+import { collection, addDoc, doc, updateDoc} from 'firebase/firestore'
 import { Link } from 'react-router-dom'
 
 /*
@@ -22,10 +22,22 @@ const Formulario = ({total, cart}) => {
             const generarOrden = await addDoc(col, orden);
             alert("Su Orden se genero correctamente...", generarOrden.id);
             clearCart();       
+            updateOrderStock(formulario.items)
         } catch (error){
             console.error(error)
         }
-    } 
+    }
+
+    const updateOrderStock = (items) => {
+        items.map((item) => {
+            let value = item.stock - item.counter;
+            console.log(value)
+            console.log(item)
+            const orderDoc = doc(db, "productos", item.id); 
+            updateDoc(orderDoc, {stock: (item.stock - item.counter)})
+        })
+    }
+
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -36,6 +48,7 @@ const Formulario = ({total, cart}) => {
             event.preventDefault();
             event.stopPropagation();
             setInFireBase(formulario);
+
         }
     
         setValidated(true);

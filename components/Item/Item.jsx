@@ -2,7 +2,13 @@ import React from 'react'
 import { Col, Card, CardGroup} from 'react-bootstrap'
 import { Link } from "react-router-dom";
 
-const Item = ({index, item, onAdd}) => {
+/*
+    Componente que obtiene el formato de un card item, para la muestra de este en el front.  
+    @{index}, Parametro que obtiene la id del producto.
+    @{item},  parametro que contiene 1 item de la lista solicitada. 
+*/
+
+const Item = ({index, item}) => {
 
 const {titulo, img, descriptions, precio, ofertPrice} = item;
 

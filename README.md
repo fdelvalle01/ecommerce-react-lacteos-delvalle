@@ -2,7 +2,7 @@ Lacteos Del Valle SA.
 
 Proyecto: Esta plataforma web creada con react js es una plataforma E-comerse la cual contiene productos lacteos. para la venta a lo largo de todo chile. 
 
-Link proyect: https://distribuidoradelvallesav6.netlify.app/
+Link proyecto DEMO: https://lacteosdelvallev7.netlify.app/
 
 En el directorio del proyecto tienes que ejecutar el siguiente comando. 
 

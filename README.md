@@ -4,6 +4,15 @@ Proyecto: Esta plataforma web creada con react js es una plataforma E-comerse la
 
 Link proyecto DEMO: https://lacteosdelvallev7.netlify.app/
 
+
+![2022-10-05 14-16-30](https://user-images.githubusercontent.com/33506990/194121832-c2c530ac-6e8f-4603-9708-e581181f4f0b.gif)
+
+
+
+
+
+
+
 En el directorio del proyecto tienes que ejecutar el siguiente comando. 
 
 ### `npm start`

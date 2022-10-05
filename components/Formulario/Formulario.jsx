@@ -1,6 +1,6 @@
 import React, {useState, useContext} from 'react'
 import { GlobalContext } from '../../context/CartContext';
-import { Container, Button, Row, Col, Form, Alert } from 'react-bootstrap';
+import { Container, Button, Row, Col, Form } from 'react-bootstrap';
 import db from '../../services/services'
 import { collection, addDoc, doc, updateDoc} from 'firebase/firestore'
 import { Link } from 'react-router-dom'
@@ -20,7 +20,7 @@ const Formulario = ({total, cart}) => {
         try{
             const col = collection(db, 'ordenes');
             const generarOrden = await addDoc(col, orden);
-            alert("Su Orden se genero correctamente...", generarOrden.id);
+            alert("Su Orden se genero correctamente..."+ generarOrden.id);
             clearCart();       
             updateOrderStock(formulario.items)
         } catch (error){

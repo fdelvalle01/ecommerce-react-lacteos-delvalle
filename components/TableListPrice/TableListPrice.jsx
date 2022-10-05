@@ -4,6 +4,8 @@ import itemListData from '../../jsons/listaProductos.json'
 import './TableListPrice.css'
 import { DownloadTableExcel } from 'react-export-table-to-excel';
 import TableItems from './TableItems/TableItems'
+import db from '../../services/services'
+import { collection, getDocs, query, where  } from 'firebase/firestore'
 
 /*
     Componente que muestra todos los productos en una tabla para la informacion mas especifica de los usuarios, se puede exportar a un excel y contiene un buscador.. 
@@ -14,17 +16,39 @@ const TableListPrice = () => {
     const [textFilter, setTextFilter] = useState([]);
 
     //Tenemos un useEffect que tiene una promise y consume un json. 
+    // useEffect(() => {
+    //   const {listProducts} = itemListData;
+    //   new Promise((resolve) => {
+    //     setTimeout(()=> {
+    //       resolve(listProducts); 
+    //     }, 1000);
+    //   }).then((data) => {
+    //     setProducts(data);
+    //     setTextFilter(data);
+    //   });
+    // }, []);
+
     useEffect(() => {
-      const {listProducts} = itemListData;
-      new Promise((resolve) => {
-        setTimeout(()=> {
-          resolve(listProducts); 
-        }, 1000);
-      }).then((data) => {
-        setProducts(data);
-        setTextFilter(data);
-      });
-    }, []);
+        const getColData = async () => {
+          try {
+            const q = query(collection(db, "productos"), where("stock", ">", 0))
+            getDocs(q).then((snapshot)=> {
+              if(snapshot.size === 0){
+                  console.log("No Results");
+              }
+              setProducts(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() })))
+              setTextFilter(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() })))
+        
+            })
+          } catch (error) {
+            console.log(error)
+          }
+        }
+    
+        getColData();
+        return () => {
+        }
+      }, []);
 
     const filterProduct = (e) => {
         let value = products.filter( element => {

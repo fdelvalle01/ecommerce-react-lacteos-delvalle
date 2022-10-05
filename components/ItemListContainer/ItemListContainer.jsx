@@ -15,21 +15,21 @@ const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
 
   const {categoryId} = useParams();
-  console.log(categoryId)
-
   // Conection for firebase data and products 
   useEffect(() => {
     const getColData = async () => {
-      try {
-        const q = query(collection(db, "productos"), where("stock", ">", 0))
-        getDocs(q).then((snapshot)=> {
-          if(snapshot.size === 0){
-              console.log("No Results");
-          }
-          setProducts(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() })))
-        })
-      } catch (error) {
-        console.log(error)
+      if(categoryId === undefined){
+        try {
+          const q = query(collection(db, "productos"), where("stock", ">", 0))
+          getDocs(q).then((snapshot)=> {
+            if(snapshot.size === 0){
+                console.log("No Results");
+            }
+            setProducts(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data() })))
+          })
+        } catch (error) {
+          console.log(error)
+        }
       }
     }
 

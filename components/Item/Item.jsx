@@ -14,11 +14,11 @@ const {titulo, img, descriptions, precio, ofertPrice} = item;
 
   return (
     <Col sm="3" key={index}> 
-    <CardGroup>
+    <CardGroup style={{height: "100%"}}>
       <Card className='Card' body color="primary" >
       <Card.Header id='CardHeader'>{titulo}</Card.Header>
-      <Card.Img variant="top" src={img} style={{maxWidth: "200px",  maxHeight: "200px", marginTop:"30px"}}/>
-        <Card.Body>
+      <Card.Img variant="top" src={img}  style={{maxHeight: "150px", maxWidth:'150px', marginTop:'50px'}}/>
+        <Card.Body >
           <Card.Text>
           {descriptions}
           </Card.Text>
